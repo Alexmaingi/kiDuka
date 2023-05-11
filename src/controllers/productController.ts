@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import {v4 as uid} from 'uuid'
 import mssql from 'mssql'
 import { sqlConfig } from "../config";
+import { productSchema } from "../Helpers/productValidation";
 
 
 interface ExtendedRequest extends Request{
@@ -34,6 +35,11 @@ export const addProduct=async (req:ExtendedRequest, res:Response) => {
     try {
         let id = uid()
         const {productName,inStock, price, image, description} =req.body
+
+        const {error} = productSchema.validate(req.body);
+        if (error){
+            return res.status(404).json(error)
+        }
 
         const pool = await mssql.connect(sqlConfig)
         await pool.request()

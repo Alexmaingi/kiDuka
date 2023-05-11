@@ -3,10 +3,10 @@ POST http://localhost:4000/users
 Content-Type:  application/json
 
 {
-   "name":"Mary Mwangi" ,
-   "email":"mary3@gmail.com",
+   "name":"Mary Mwangiiiiiiiii" ,
+   "email":"mary@gmail.com",
    "password":"12345678",
-   "phoneNumber": "0712334554"
+   "phoneNumber": "0712334555"
    
 }
 
@@ -27,6 +27,9 @@ Content-Type: application/json
 GET http://localhost:4000/products
 
 ###
+GET http://localhost:4000/users
+
+###
 GET http://localhost:4000/products/50c8550f-37f9-417d-8fd6-4c854baaf7aa
 
 ###
@@ -43,4 +46,4 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:4000/products/6b17905b-cba2-4e82-9571-7e1a6efaf2de
+DELETE http://localhost:4000/products/50c8550f-37f9-417d-8fd6-4c854baaf7aa

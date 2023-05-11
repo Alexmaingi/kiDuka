@@ -1,0 +1,49 @@
+
+POST http://localhost:4000/users
+Content-Type:  application/json
+
+{
+   "name":"Mary Mwangiiiiiiiii" ,
+   "email":"mary@gmail.com",
+   "password":"12345678",
+   "phoneNumber": "0712334555"
+   
+}
+
+
+###
+POST http://localhost:4000/products
+Content-Type: application/json
+
+{
+"productName":"watch:)", 
+"inStock":200,
+"price":5000,
+"image":"string",
+"description":"a very good watch"
+}
+
+###
+GET http://localhost:4000/products
+
+###
+GET http://localhost:4000/users
+
+###
+GET http://localhost:4000/products/50c8550f-37f9-417d-8fd6-4c854baaf7aa
+
+###
+PUT http://localhost:4000/products/e0162a91-57c-4980-8c34-84badfa6c4d4
+Content-Type: application/json
+
+{
+"productName":"my watch3", 
+"inStock":"200",
+"price":"5000",
+"image":"string",
+"description":"a very good watch"
+}
+
+
+###
+DELETE http://localhost:4000/products/50c8550f-37f9-417d-8fd6-4c854baaf7aa

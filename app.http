@@ -1,12 +1,49 @@
+GET http://localhost:4000/users
+
+###
 
 POST http://localhost:4000/users
 Content-Type:  application/json
 
 {
-   "name":"Mary Mwangiiiiiiiii" ,
-   "email":"mary@gmail.com",
-   "password":"12345678",
-   "phoneNumber": "0712334555"
+   "name":"Maria Mwangiii" ,
+   "email":"76546@example.com",
+   "password":"3456677", 
+   "phoneNumber": "074439345"
+   
+}
+
+
+###
+
+POST http://localhost:4000/users/login
+Content-Type:  application/json
+
+{
+   "email":"76546@example.com",
+   "password":"3456677"
+   
+}
+
+###
+
+GET http://localhost:4000/users/1ac24f89-f1be-439e-91e4-eb7055fb2879
+
+###
+GET http://localhost:4000/users/email/example123@example.com
+
+###
+DELETE  http://localhost:4000/users/1ac24f89-f1be-439e-91e4-eb7055fb2879
+
+###
+PUT http://localhost:4000/users/7848a6a2-5373-4695-836b-5b139d07a559
+Content-Type:  application/json
+
+{
+   "name":"Mary NNMwangiii" ,
+   "email":"marUU@gmail.com",
+   "password":"123RYUR478",
+   "phoneNumber": "077234555"
    
 }
 
@@ -27,23 +64,20 @@ Content-Type: application/json
 GET http://localhost:4000/products
 
 ###
-GET http://localhost:4000/users
+GET http://localhost:4000/products/560d5c81-e6a6-41a8-b50b-7b86fc8d183f
 
 ###
-GET http://localhost:4000/products/50c8550f-37f9-417d-8fd6-4c854baaf7aa
-
-###
-PUT http://localhost:4000/products/e0162a91-57c-4980-8c34-84badfa6c4d4
+PUT http://localhost:4000/products/560d5c81-e6a6-41a8-b50b-7b86fc8d183f
 Content-Type: application/json
 
 {
-"productName":"my watch3", 
+"productName":"oraimo", 
 "inStock":"200",
-"price":"5000",
-"image":"string",
-"description":"a very good watch"
+"price":"50877868",
+"image":"link",
+"description":"a very watch"
 }
 
 
 ###
-DELETE http://localhost:4000/products/50c8550f-37f9-417d-8fd6-4c854baaf7aa
+DELETE http://localhost:4000/products/083e5926-c664-4f3a-8eea-853392dcd98a

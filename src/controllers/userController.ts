@@ -26,7 +26,7 @@ interface User {
   id: string;
   name: string;
   email: string;
-  roles: string;
+  role: string;
   isDeleted: number;
   password: string;
   emailSent: string;
@@ -191,7 +191,7 @@ export const loginUser = async (req: Request, res: Response) => {
     }
 
     const payload = user.map((user1) => {
-      const { password, roles, isDeleted, emailSent, ...rest } = user1;
+      const { password, isDeleted, emailSent, ...rest } = user1;
       return rest;
     });
 

@@ -13,7 +13,7 @@ const productRoutes = Router();
 productRoutes.post("", verifyToken, addProduct);
 productRoutes.get("", getAllProducts);
 productRoutes.get("/:id", getProduct);
-productRoutes.put("/:id", updateProduct);
-productRoutes.delete("/:id", deleteProduct);
+productRoutes.put("/:id", verifyToken, updateProduct);
+productRoutes.delete("/:id", verifyToken, deleteProduct);
 
 export default productRoutes;

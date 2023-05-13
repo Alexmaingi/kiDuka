@@ -24,7 +24,7 @@ POST http://localhost:9000/users/login
 Content-Type:  application/json
 
 {
-   "email":"maryjoy@example.com",
+   "email":"test3@example.com",
    "password":"maryjoy"
    
 }
@@ -65,7 +65,7 @@ Content-Type:  application/json
 ###
 POST http://localhost:9000/products
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1hZTRjLWM5MzlhMWUxZWMyZCIsIm5hbWUiOiJUZXN0R3V5MSIsImVtYWlsIjoidGVzdDNAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzEyMzk0MDc4LCJyb2xlIjoidXNlciIsImlhdCI6MTY4Mzk2NzMxOSwiZXhwIjoxNjg0MzI3MzE5fQ.JgrjrfQT0hMgJYngMBQ8mywk3GgaInwDFsCOQXsFxck
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5YmFjMDRiLWM3YmItNDk0Mi05ZDRhLWNjMGI0ZWM3NDI3MiIsIm5hbWUiOiJNYXJ5am95IiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjcxMjk0NTY3OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzOTY3NDU3LCJleHAiOjE2ODQzMjc0NTd9.bBKC26BwzIA6Jh90eLAhZB9mcNB3dluc_11zr7YQPjM
 
 {
 "productName":"watth:)", 
@@ -87,17 +87,36 @@ GET http://localhost:9000/products/50bc3edc-ea9e-4c31-9462-f8f314ebfd4a
 ###
 PUT http://localhost:9000/products/50bc3edc-ea9e-4c31-9462-f8f314ebfd4a
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1hZTRjLWM5MzlhMWUxZWMyZCIsIm5hbWUiOiJUZXN0R3V5MSIsImVtYWlsIjoidGVzdDNAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzEyMzk0MDc4LCJyb2xlIjoidXNlciIsImlhdCI6MTY4Mzk2NzMxOSwiZXhwIjoxNjg0MzI3MzE5fQ.JgrjrfQT0hMgJYngMBQ8mywk3GgaInwDFsCOQXsFxck
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5YmFjMDRiLWM3YmItNDk0Mi05ZDRhLWNjMGI0ZWM3NDI3MiIsIm5hbWUiOiJNYXJ5am95IiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjcxMjk0NTY3OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzOTY3NDU3LCJleHAiOjE2ODQzMjc0NTd9.bBKC26BwzIA6Jh90eLAhZB9mcNB3dluc_11zr7YQPjM
 
 
 {
-"productName":"Saaaaassss", 
-"inStock":"2000000",
-"price":"50899889868",
-"image":"link",
-"description":"a very watch"
+"productName":"Clock", 
+"inStock":25080,
+"price":6050,
+"image":"string",
+"description":"avery good watch"
 }
 
 
 ###
-DELETE http://localhost:9000/products/560d5c81-e6a6-41a8-b50b-7b86fc8d183f
+DELETE http://localhost:9000/products/66b011b4-3fb4-4b26-890f-bfc048fe9f5b
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5YmFjMDRiLWM3YmItNDk0Mi05ZDRhLWNjMGI0ZWM3NDI3MiIsIm5hbWUiOiJNYXJ5am95IiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjcxMjk0NTY3OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzOTY3NDU3LCJleHAiOjE2ODQzMjc0NTd9.bBKC26BwzIA6Jh90eLAhZB9mcNB3dluc_11zr7YQPjM
+
+
+###
+
+POST http://localhost:9000/cart/2a47b2d7-71c2-48bb-be13-879044b2a010
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1hZTRjLWM5MzlhMWUxZWMyZCIsIm5hbWUiOiJUZXN0R3V5MSIsImVtYWlsIjoidGVzdDNAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzEyMzk0MDc4LCJyb2xlIjoidXNlciIsImlhdCI6MTY4Mzk4NjQxMywiZXhwIjoxNjg0MzQ2NDEzfQ.hl2JUaT0PstXSGzjm69dO8So3PyOW3ecKyQeiTgUMrQ
+
+//commtnts
+####
+
+GET  http://localhost:9000/cart/7b1c271d-94d0-41bb-ae4c-c939a1e1ec2d
+# token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5YmFjMDRiLWM3YmItNDk0Mi05ZDRhLWNjMGI0ZWM3NDI3MiIsIm5hbWUiOiJNYXJ5am95IiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjcxMjk0NTY3OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzOTgxMjYzLCJleHAiOjE2ODQzNDEyNjN9.Wh4x4t3UL9_abVzYMCaltiZlj0ql2IhKUbKqC1wbtoA
+
+######
+
+PUT  http://localhost:9000/cart/2a47b2d7-71c2-48bb-be13-879044b2a010
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1hZTRjLWM5MzlhMWUxZWMyZCIsIm5hbWUiOiJUZXN0R3V5MSIsImVtYWlsIjoidGVzdDNAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzEyMzk0MDc4LCJyb2xlIjoidXNlciIsImlhdCI6MTY4Mzk4NjQxMywiZXhwIjoxNjg0MzQ2NDEzfQ.hl2JUaT0PstXSGzjm69dO8So3PyOW3ecKyQeiTgUMrQ

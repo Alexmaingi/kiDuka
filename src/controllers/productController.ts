@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { v4 as uid } from "uuid";
 import mssql from "mssql";
 import { sqlConfig } from "../config";
+import { loginUser } from "./userController";
 
 interface DecodedData {
   id: string;
@@ -40,6 +41,7 @@ export const addProduct = async (req: ExtendedRequest, res: Response) => {
     const { productName, inStock, price, image, description } = req.body;
 
     const pool = await mssql.connect(sqlConfig);
+
     if (req.info?.role === "admin") {
       await pool
         .request()

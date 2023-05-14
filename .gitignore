@@ -4,6 +4,9 @@ dist
 tsconfig.json
 package-lock.json
 package.json
-database
+product
+userStoredProcedures
+productStoredProcedures
+tables
 userController.ts
 userRoute.ts

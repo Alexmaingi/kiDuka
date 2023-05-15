@@ -28,6 +28,7 @@ type Products = {
 interface Cart {
   product_id: string;
   user_id: string;
+  count: string;
 }
 
 export const addToCart = async (req: ExtendedRequest, res: Response) => {

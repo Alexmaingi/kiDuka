@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE getOrderById(@id varchar(255))
+AS
+BEGIN
+SELECT * FROM orders WHERE id =@id
+END

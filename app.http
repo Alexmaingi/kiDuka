@@ -1,30 +1,26 @@
-
-
-
-GET http://localhost:9000/users
+GET http://localhost:4000/users
 
 ###
 
-POST http://localhost:9000/users
+POST http://localhost:4000/users
 Content-Type:  application/json
 
-
 {
-   "name":"TestGuy1" ,
-   "email":"test3@example.com",
-   "password":"maryjoy", 
-   "phoneNumber": "0712394078"
+   "name":"yaani tu" ,
+   "email":"76546@example.com",
+   "password":"password", 
+   "phoneNumber": "074439342"
    
 }
 
 
 ###
 
-POST http://localhost:9000/users/login
+POST http://localhost:4000/users/login
 Content-Type:  application/json
 
 {
-   "email":"test3@example.com",
+   "email":"maryjoy@example.com",
    "password":"maryjoy"
    
 }
@@ -41,16 +37,16 @@ Content-Type:  application/json
 
 ###
 
-GET http://localhost:9000/users/1ac24f89-f1be-439e-91e4-eb7055fb2879
+GET http://localhost:4000/users/07937f89-e8ee-4ec5-94f9-5af3b62a9d84
 
 ###
-GET http://localhost:9000/users/email/example123@example.com
+GET http://localhost:4000/users/email/example123@example.com
 
 ###
-DELETE  http://localhost:9000/users/1ac24f89-f1be-439e-91e4-eb7055fb2879
+DELETE  http://localhost:4000/users/1ac24f89-f1be-439e-91e4-eb7055fb2879
 
 ###
-PUT http://localhost:9000/users/7848a6a2-5373-4695-836b-5b139d07a559
+PUT http://localhost:4000/users/7848a6a2-5373-4695-836b-5b139d07a559
 Content-Type:  application/json
 
 {
@@ -63,31 +59,28 @@ Content-Type:  application/json
 
 
 ###
-POST http://localhost:9000/products
+POST http://localhost:4000/products
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5YmFjMDRiLWM3YmItNDk0Mi05ZDRhLWNjMGI0ZWM3NDI3MiIsIm5hbWUiOiJNYXJ5am95IiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjcxMjk0NTY3OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzOTY3NDU3LCJleHAiOjE2ODQzMjc0NTd9.bBKC26BwzIA6Jh90eLAhZB9mcNB3dluc_11zr7YQPjM
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1hZTRjLWM5MzlhMWUxZWMyZCIsIm5hbWUiOiJUZXN0R3V5MSIsImVtYWlsIjoidGVzdDNAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzEyMzk0MDc4LCJyb2xlIjoidXNlciIsImlhdCI6MTY4Mzk2NzMxOSwiZXhwIjoxNjg0MzI3MzE5fQ.JgrjrfQT0hMgJYngMBQ8mywk3GgaInwDFsCOQXsFxck
 
 {
-"productName":"watth:)", 
-"inStock":2500,
-"price":50050,
+"productName":"watch:)", 
+"inStock":200,
+"price":5000,
 "image":"string",
-"description":"avery good watch"
-
-
-
+"description":"a very good watch"
 }
 
 ###
-GET http://localhost:9000/products
+GET http://localhost:4000/products
 
 ###
-GET http://localhost:9000/products/50bc3edc-ea9e-4c31-9462-f8f314ebfd4a
+GET http://localhost:4000/products/560d5c81-e6a6-41a8-b50b-7b86fc8d183f
 
 ###
-PUT http://localhost:9000/products/50bc3edc-ea9e-4c31-9462-f8f314ebfd4a
+PUT http://localhost:4000/products/560d5c81-e6a6-41a8-b50b-7b86fc8d183f
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5YmFjMDRiLWM3YmItNDk0Mi05ZDRhLWNjMGI0ZWM3NDI3MiIsIm5hbWUiOiJNYXJ5am95IiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjcxMjk0NTY3OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzOTY3NDU3LCJleHAiOjE2ODQzMjc0NTd9.bBKC26BwzIA6Jh90eLAhZB9mcNB3dluc_11zr7YQPjM
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1hZTRjLWM5MzlhMWUxZWMyZCIsIm5hbWUiOiJUZXN0R3V5MSIsImVtYWlsIjoidGVzdDNAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzEyMzk0MDc4LCJyb2xlIjoidXNlciIsImlhdCI6MTY4Mzk2NzMxOSwiZXhwIjoxNjg0MzI3MzE5fQ.JgrjrfQT0hMgJYngMBQ8mywk3GgaInwDFsCOQXsFxck
 
 
 {

@@ -2,12 +2,15 @@ import { Router } from "express";
 import {
   addUser,
   deleteUser,
+  forgotPassword,
   getUserByEmail,
   getUserById,
   getallUser,
   loginUser,
+  resetPassword,
   updateUser,
 } from "../controllers/userController";
+import { verifyToken } from "../middleware/verifyToken";
 
 const userRoutes = Router();
 
@@ -18,5 +21,6 @@ userRoutes.get("/email/:email", getUserByEmail);
 userRoutes.put("/:id", updateUser);
 userRoutes.delete("/:id", deleteUser);
 userRoutes.post("/login", loginUser);
-
+userRoutes.get("/forgotPassword/:email", forgotPassword)
+userRoutes.put("/forgotPassword/:id",verifyToken, resetPassword)
 export default userRoutes;

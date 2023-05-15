@@ -123,11 +123,13 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
     }
   };
 
-  export const getAllOrdersByUserId = async (req: Request<{user_id:string}>, res: Response) => {
+  export const getAllOrdersByUserId = async (req: ExtendedRequest, res: Response) => {
     try {
-        const { user_id } = req.params;
+        const { id } = req.params;
       const pool = await mssql.connect(sqlConfig);
-      let orders: Order[] = (await pool.request().input("user_id",user_id).execute("getAllOrdersByUserId"))
+          
+      
+      let orders: Order[] = (await pool.request().input("id",id).input("user_id",req.info?.id).execute("getAllOrdersByUserId"))
         .recordset;
       return res.status(200).json(orders);
     } catch (error: any) {

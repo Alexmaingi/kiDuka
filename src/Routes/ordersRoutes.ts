@@ -10,7 +10,7 @@ ordersRoutes.put("/delete/:id",verifyToken, deleteOrder)
 ordersRoutes.put("/delivered/:id",verifyToken, updateOrderToDelivered)
 ordersRoutes.put("/dispatched/:id",verifyToken, updateOrderToDispatched)
 ordersRoutes.get("",verifyToken, getAllOrders)
-ordersRoutes.get("/:user_id", getAllOrdersByUserId)
+ordersRoutes.get("/:id",verifyToken, getAllOrdersByUserId)
 
 
 export default ordersRoutes

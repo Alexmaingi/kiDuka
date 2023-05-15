@@ -28,6 +28,7 @@ type Products = {
 interface Cart {
   product_id: string;
   user_id: string;
+  count: string;
 }
 
 export const addToCart = async (req: ExtendedRequest, res: Response) => {
@@ -93,6 +94,23 @@ export const deleteCartProduct = async (
       .input("user_id", req.info?.id)
       .execute("deleteToCart");
     return res.status(200).json({ message: "product deleted successfully" });
+  } catch (error: any) {
+    return res.status(500).json(error.message);
+  }
+};
+
+export const incrementToCart = async (req: ExtendedRequest, res: Response) => {
+  try {
+    let id = uid();
+    const pool = await mssql.connect(sqlConfig);
+
+    console.log("incremented");
+
+    await pool
+      .request()
+      .input("id", mssql.VarChar, id)
+      .execute("incrementProductInCart ");
+    return res.status(201).json({ message: "product added!" });
   } catch (error: any) {
     return res.status(500).json(error.message);
   }

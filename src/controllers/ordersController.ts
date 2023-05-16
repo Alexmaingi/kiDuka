@@ -100,7 +100,7 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
           .request()
           .input("id", mssql.VarChar, id)
           .execute("updateOrderStatusToDispatched");
-        return res.status(201).json({ message: "order delivered!" });
+        return res.status(201).json({ message: "order dispatched!" });
       }
       return res.status(500).json({ message: "Unauthorized" });
     } catch (error: any) {

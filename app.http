@@ -6,10 +6,10 @@ POST http://localhost:4000/users
 Content-Type:  application/json
 
 {
-   "name":"yaani tuuuuiiii" ,
-   "email":"7654618@example.com",
+   "name":"Deep Sigh" ,
+   "email":"sigh@example.com",
    "password":"password", 
-   "phoneNumber": "074539340"
+   "phoneNumber": "074539349"
    
 }
 
@@ -105,8 +105,6 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5YmFjMDRiLWM3YmItNDk0Mi05
 ###
 //add to cart
 
-POST http://localhost:9000/cart/50bc3edc-ea9e-4c31-9462-f8f314ebfd4a
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1hZTRjLWM5MzlhMWUxZWMyZCIsIm5hbWUiOiJUZXN0R3V5MSIsImVtYWlsIjoidGVzdDNAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzEyMzk0MDc4LCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDA0ODU2MSwiZXhwIjoxNjg0NDA4NTYxfQ.2vkCv_wJ0p43As3fy0Juq4gBzhz1NRU_alHm9eryOnU
 
 POST http://localhost:4000/cart/83db2eb6-26ea-454a-9826-72480a2a46c0
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDA5NjM5MSwiZXhwIjoxNjg0NDU2MzkxfQ.BmvZxlZln975RBrB_W4cnYJIFFZJRORTfyDFUg-10TE
@@ -148,7 +146,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05
 
 //make order
 ###
-POST http://localhost:4000/order/d1faadf7-015c-43dd-9638-366fbc20b87c
+POST http://localhost:4000/order/8b3a8170-5999-45f0-a305-cf82dafad50b
 
 //cancel an order using the order id in the url
 ###
@@ -158,35 +156,34 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05
 //get all orders, only for admin
 ###
 GET http://localhost:4000/order
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsImlhdCI6MTY4NDA3MzgwNCwiZXhwIjoxNjg0NDMzODA0fQ.n6sZQ2kyUbZtxkp1tntR2OHxr5UM3udf0JUYnBr0Ly4
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDIzNDcyNiwiZXhwIjoxNjg0NTk0NzI2fQ.lrkiCkzpVWgbh27St8DXSywSOndBTvXxbaEQcq5xmBw
 
 
 //mark as dispatched, only for admin
 ###
-PUT http://localhost:4000/order/dispatched/25c40539-bbf4-4814-bd28-714c22f7aaa3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsImlhdCI6MTY4NDA3MzgwNCwiZXhwIjoxNjg0NDMzODA0fQ.n6sZQ2kyUbZtxkp1tntR2OHxr5UM3udf0JUYnBr0Ly4
+PUT http://localhost:4000/order/dispatched/a0a97872-1dae-4b1d-8055-5a0871ed2b81
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDIzNDcyNiwiZXhwIjoxNjg0NTk0NzI2fQ.lrkiCkzpVWgbh27St8DXSywSOndBTvXxbaEQcq5xmBw
 
 //mark as delivered, only for admin
 ###
-PUT http://localhost:4000/order/delivered/25c40539-bbf4-4814-bd28-714c22f7aaa3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsImlhdCI6MTY4NDA3MzgwNCwiZXhwIjoxNjg0NDMzODA0fQ.n6sZQ2kyUbZtxkp1tntR2OHxr5UM3udf0JUYnBr0Ly4
+PUT http://localhost:4000/order/delivered/a0a97872-1dae-4b1d-8055-5a0871ed2b81
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDIzNDcyNiwiZXhwIjoxNjg0NTk0NzI2fQ.lrkiCkzpVWgbh27St8DXSywSOndBTvXxbaEQcq5xmBw
 
 
 //--------------------forgot password
 ###
-GET http://localhost:4000/users/forgotPassword/76546@example.com
+GET http://localhost:4000/users/forgotPassword/sigh@example.com
 
 
 
 //RESET password
 
 ####
-PUT http://localhost:4000/users/forgotPassword/d1faadf7-015c-43dd-9638-366fbc20b87c
+PUT http://localhost:4000/users/forgotPassword/reset/d1faadf7-015c-43dd-9638-366fbc20b87c
 Content-Type:  application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDE0OTgyMCwiZXhwIjoxNjg0NTA5ODIwfQ.Eq9eZasXtG4KWQ5HvIAbozxEM5dgoQoRd_M7tomq_j0
 
 {
-   "email": "76546@example.com",
+     "email":"76546@example.com",
    "password":"admin"
    
 }

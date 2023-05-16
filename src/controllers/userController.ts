@@ -313,7 +313,7 @@ try {
               <p>We received a request to reset your password for your kiDuka account. If you did not make this request, you can safely ignore this email.</p>
               <p>To reset your password, please click the button below:</p>
             </div>
-            <a class="cta" href="http://localhost:4000/users/forgotPassword/${user[0].id}">Reset Password</a>
+            <a class="cta" href="http://localhost:4000/users/forgotPassword/reset/${user[0].id}">Reset Password</a>
             <div class="content">
               <p>If the button above doesn't work, you can copy and paste the following URL into your web browser:</p>
               <p></p>
@@ -349,8 +349,10 @@ return res.status(200).json({ message: "Email Sent!" })
 export const resetPassword = async (req: ExtendedRequest, res: Response) => {
   try {
     const { password } = req.body;
+    const {id} = req.params
     let hashedPassword = await bcrypt.hash(password, 10);
-    const { id } = req.params;
+ console.log(id);
+ 
     const pool = await mssql.connect(sqlConfig);
     let user: User = (
       await (await pool.request()).input("id", id).execute("getUserById")
@@ -362,7 +364,6 @@ export const resetPassword = async (req: ExtendedRequest, res: Response) => {
     await pool
       .request()
       .input("id", id)
-      
       .input("password", hashedPassword)
       .execute("resetPassword");
     return res.status(200).json({ message: "User Password Updated" });

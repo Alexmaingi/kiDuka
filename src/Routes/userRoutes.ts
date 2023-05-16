@@ -22,5 +22,5 @@ userRoutes.put("/:id", updateUser);
 userRoutes.delete("/:id", deleteUser);
 userRoutes.post("/login", loginUser);
 userRoutes.get("/forgotPassword/:email", forgotPassword)
-userRoutes.put("/forgotPassword/:id",verifyToken, resetPassword)
+userRoutes.put("/forgotPassword/reset/:id", resetPassword)
 export default userRoutes;

@@ -6,10 +6,10 @@ POST http://localhost:4000/users
 Content-Type:  application/json
 
 {
-   "name":"Deep Sigh" ,
-   "email":"sigh@example.com",
+   "name":"maryjoy fr" ,
+   "email":"maryjoy@example.com",
    "password":"password", 
-   "phoneNumber": "074539349"
+   "phoneNumber": "074539359"
    
 }
 
@@ -31,7 +31,7 @@ Content-Type:  application/json
 
 {
     "email": "maryjoy@example.com",
-   "password":"maryjoy"
+   "password":"password"
    
 }
 
@@ -57,18 +57,19 @@ Content-Type:  application/json
    
 }
 
+//-----------------------PRODUCTS-----------------
 
 ###
 POST http://localhost:4000/products
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1hZTRjLWM5MzlhMWUxZWMyZCIsIm5hbWUiOiJUZXN0R3V5MSIsImVtYWlsIjoidGVzdDNAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzEyMzk0c4LCJyb2xlIjoidXNlciIsImlhdCI6MTY4Mzk2NzMxOSwiZXhwIjoxNjg0MzI3MzE5fQ.JgrjrfQT0hMgJYngMBQ8mywk3GgaInwDFsCOQXsFxck
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5YTBmZDQ0LTg5NzEtNDQ0NC04NzEzLWUyOWFkMjQwOThlMyIsIm5hbWUiOiJtYXJ5am95IGZyIiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjc0NTM5MzU5LCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDMyNTc3NywiZXhwIjoxNjg0Njg1Nzc3fQ.i6r3ixHIG-cdFohS9H0EwP6sVsTadAEXjanGc6LswYg
 
 {
-"productName":"watch:)", 
+"productName":"unga", 
 "inStock":200,
 "price":5000,
 "image":"string",
-"description":"a very good watch"
+"description":"utashiba"
 }
 
 ###
@@ -78,9 +79,9 @@ GET http://localhost:4000/products
 GET http://localhost:4000/products/560d5c81-e6a6-41a8-b50b-7b86fc8d183f
 
 ###
-PUT http://localhost:4000/products/560d5c81-e6a6-41a8-b50b-7b86fc8d183f
+PUT http://localhost:4000/products/83db2eb6-26ea-454a-9826-72480a2a46c0
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1hZTRjLWM5MzlhMWUxZWMyZCIsIm5hbWUiOiJUZXN0R3V5MSIsImVtYWlsIjoidGVzdDNAZXhhbXBsZS5jb20iLCJwaG9uZU5JlciI6NzEyMzk0MDc4LCJyb2xlIjoidXNlciIsImlhdCI6MTY4Mzk2NzMxOSwiZXhwIjoxNjg0MzI3MzE5fQ.JgrjrfQT0hMgJYngMBQ8mywk3GgaInwDFsCOQXsFxck
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5YTBmZDQ0LTg5NzEtNDQ0NC04NzEzLWUyOWFkMjQwOThlMyIsIm5hbWUiOiJtYXJ5am95IGZyIiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjc0NTM5MzU5LCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDMyNTc3NywiZXhwIjoxNjg0Njg1Nzc3fQ.i6r3ixHIG-cdFohS9H0EwP6sVsTadAEXjanGc6LswYg
 
 
 {
@@ -92,10 +93,11 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMWMyNzFkLTk0ZDAtNDFiYi1h
 }
 
 
+
 ###
-DELETE http://localhost:9000/products/66b011b4-3fb4-4b26-890f-bfc048fe9f5b
+DELETE http://localhost:4000/products/83db2eb6-26ea-454a-9826-72480a2a46c0
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5YmFjMDRiLWM3YmItNDk0Mi05ZDRhLWNjMGI0ZWM3NDI3MiIsIm5hbWUiOiJNYXJ5am95IiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjcxMjk0NTY3OCwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzOTY3NDU3LCJleHAiOjE2ODQzMjc0NTd9.bBKC26BwzIA6Jh90eLAhZB9mcNB3dluc_11zr7YQPjM
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5YTBmZDQ0LTg5NzEtNDQ0NC04NzEzLWUyOWFkMjQwOThlMyIsIm5hbWUiOiJtYXJ5am95IGZyIiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjc0NTM5MzU5LCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDMyNTc3NywiZXhwIjoxNjg0Njg1Nzc3fQ.i6r3ixHIG-cdFohS9H0EwP6sVsTadAEXjanGc6LswYg
 
 
 
@@ -106,16 +108,16 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5YmFjMDRiLWM3YmItNDk0Mi05
 //add to cart
 
 
-POST http://localhost:4000/cart/83db2eb6-26ea-454a-9826-72480a2a46c0
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDA5NjM5MSwiZXhwIjoxNjg0NDU2MzkxfQ.BmvZxlZln975RBrB_W4cnYJIFFZJRORTfyDFUg-10TE
+POST http://localhost:4000/cart/3a4c80ae-6dab-4a14-884b-fc491dd4fc77
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5YTBmZDQ0LTg5NzEtNDQ0NC04NzEzLWUyOWFkMjQwOThlMyIsIm5hbWUiOiJtYXJ5am95IGZyIiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjc0NTM5MzU5LCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDMxNzkwNCwiZXhwIjoxNjg0Njc3OTA0fQ.OJtUB1A_f-njr96vA2OXYX-ZXwm8LeWJhmSsA8kXfYc
 
 
 
 //get everything in the user's cart -pass user id in the url
 ####
 
-GET  http://localhost:4000/cart/d1faadf7-015c-43dd-9638-366fbc20b87c
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDA5NjM5MSwiZXhwIjoxNjg0NDU2MzkxfQ.BmvZxlZln975RBrB_W4cnYJIFFZJRORTfyDFUg-10TE
+GET  http://localhost:4000/cart/f9a0fd44-8971-4444-8713-e29ad24098e3
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5YTBmZDQ0LTg5NzEtNDQ0NC04NzEzLWUyOWFkMjQwOThlMyIsIm5hbWUiOiJtYXJ5am95IGZyIiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjc0NTM5MzU5LCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDMxODczNiwiZXhwIjoxNjg0Njc4NzM2fQ.HpPOFhQtUO6azpqkEjGFff9mXpKY9w76VJiisNtDdLE
 
 
 
@@ -123,40 +125,40 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05
 
 ######
 
-PUT  http://localhost:4000/cart/1
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDA5NjM5MSwiZXhwIjoxNjg0NDU2MzkxfQ.BmvZxlZln975RBrB_W4cnYJIFFZJRORTfyDFUg-10TE
+PUT  http://localhost:4000/cart/589c11ab-217d-4ff3-80ac-129ecd7c62fd
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5YTBmZDQ0LTg5NzEtNDQ0NC04NzEzLWUyOWFkMjQwOThlMyIsIm5hbWUiOiJtYXJ5am95IGZyIiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjc0NTM5MzU5LCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDMxODczNiwiZXhwIjoxNjg0Njc4NzM2fQ.HpPOFhQtUO6azpqkEjGFff9mXpKY9w76VJiisNtDdLE
 
 
 ######
-//decrement item count in cart 
+//decrement item count in cart takes cart_id in url and user token 
 PUT  http://localhost:4000/cart/decrement/6
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDA5NjM5MSwiZXhwIjoxNjg0NDU2MzkxfQ.BmvZxlZln975RBrB_W4cnYJIFFZJRORTfyDFUg-10TE
 
 ###
 //increment item count in cart 
-PUT  http://localhost:4000/cart/increment/6
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDA5NjM5MSwiZXhwIjoxNjg0NDU2MzkxfQ.BmvZxlZln975RBrB_W4cnYJIFFZJRORTfyDFUg-10TE
+PUT  http://localhost:4000/cart/increment/589c11ab-217d-4ff3-80ac-129ecd7c62fd
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5YTBmZDQ0LTg5NzEtNDQ0NC04NzEzLWUyOWFkMjQwOThlMyIsIm5hbWUiOiJtYXJ5am95IGZyIiwiZW1haWwiOiJtYXJ5am95QGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOjc0NTM5MzU5LCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDMxODczNiwiZXhwIjoxNjg0Njc4NzM2fQ.HpPOFhQtUO6azpqkEjGFff9mXpKY9w76VJiisNtDdLE
 
 //------------------------------------ORDERS--------------------------------------------------
 //get order by a certain user using order_id in url and user token to know which user
 ###
-GET http://localhost:4000/order/25c40539-bbf4-4814-bd28-714c22f7aaa3
+GET http://localhost:4000/order/d1faadf7-015c-43dd-9638-366fbc20b87c
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsImlhdCI6MTY4NDA3MzgwNCwiZXhwIjoxNjg0NDMzODA0fQ.n6sZQ2kyUbZtxkp1tntR2OHxr5UM3udf0JUYnBr0Ly4
 
 
-//make order
+//make order using user_id
 ###
-POST http://localhost:4000/order/8b3a8170-5999-45f0-a305-cf82dafad50b
+POST http://localhost:4000/order/d1faadf7-015c-43dd-9638-366fbc20b87c
 
 //cancel an order using the order id in the url
 ###
-PUT http://localhost:4000/order/delete/f3a58241-a0f9-43f0-9b8d-4207f520cd2f
+PUT http://localhost:4000/order/delete/d1faadf7-015c-43dd-9638-366fbc20b87c
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsImlhdCI6MTY4NDA3MzgwNCwiZXhwIjoxNjg0NDMzODA0fQ.n6sZQ2kyUbZtxkp1tntR2OHxr5UM3udf0JUYnBr0Ly4
 
 //get all orders, only for admin
 ###
 GET http://localhost:4000/order
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDIzNDcyNiwiZXhwIjoxNjg0NTk0NzI2fQ.lrkiCkzpVWgbh27St8DXSywSOndBTvXxbaEQcq5xmBw
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDMzNTUwMSwiZXhwIjoxNjg0Njk1NTAxfQ.pAHT-qxkX3z3Qa900CsJ4MB90-0vr1jB2-oKoLujPh4
 
 
 //mark as dispatched, only for admin
@@ -167,7 +169,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05
 //mark as delivered, only for admin
 ###
 PUT http://localhost:4000/order/delivered/a0a97872-1dae-4b1d-8055-5a0871ed2b81
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDIzNDcyNiwiZXhwIjoxNjg0NTk0NzI2fQ.lrkiCkzpVWgbh27St8DXSywSOndBTvXxbaEQcq5xmBw
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsImlhdCI6MTY4NDA3MzgwNCwiZXhwIjoxNjg0NDMzODA0fQ.n6sZQ2kyUbZtxkp1tntR2OHxr5UM3udf0JUYnBr0Ly4
 
 
 //--------------------forgot password

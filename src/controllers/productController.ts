@@ -3,37 +3,7 @@ import { v4 as uid } from "uuid";
 import mssql from "mssql";
 import { sqlConfig } from "../config";
 import { loginUser } from "./userController";
-
-interface DecodedData {
-  id: string;
-  name: string;
-  emai: string;
-  role: string;
-}
-interface ExtendedRequest extends Request {
-  body: {
-    productName: string;
-    isDeleted: string;
-    inStock: number;
-    price: number;
-    image: string;
-    description: string;
-  };
-  info?: DecodedData;
-  params: {
-    id: string;
-  };
-}
-
-type Products = {
-  id: string;
-  productName: string;
-  isDeleted: string;
-  inStock: number;
-  price: number;
-  image: string;
-  description: string;
-};
+import { ExtendedRequest,Products} from "../Interfaces/Index";
 
 export const addProduct = async (req: ExtendedRequest, res: Response) => {
   try {

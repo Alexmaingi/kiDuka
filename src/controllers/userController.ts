@@ -9,39 +9,10 @@ import path from "path";
 import jwt from "jsonwebtoken";
 import ejs from "ejs"
 import nodemailer from "nodemailer"
+import { ExtendedRequest,User } from "../Interfaces/Index";
+import { DatabaseHelper } from "../DatabaseHelper";
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
-
-interface DecodedData {
-  id: string;
-  name: string;
-  emai: string;
-  role: string;
-}
-
-interface ExtendedRequest extends Request {
-  body: {
-    name: string;
-    email: String;
-    password: string;
-    phoneNumber: number;
-  };
-  info?: DecodedData;
-  params: {
-    id: string;
-    email?:string
-  };
-}
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  isDeleted: number;
-  password: string;
-  emailSent: string;
-}
 
 // inserting users
 
@@ -233,7 +204,7 @@ try {
     return res.status(404).json({ message: "User not found" });
   }
 
-  const tok = jwt.sign({id:req.info?.id, name:req.info?.name, role:req.info?.role, emai:req.info?.emai}, process.env.SECRET_KEY as string, {expiresIn: '1hr'})
+  //const tok = jwt.sign({id:req.info?.id, name:req.info?.name, role:req.info?.role, emai:req.info?.emai}, process.env.SECRET_KEY as string, {expiresIn: '1hr'})
 
   
   let configOptions={
@@ -315,7 +286,7 @@ try {
             </div>
             <a class="cta" href="http://localhost:4000/users/forgotPassword/reset/${user[0].id}">Reset Password</a>
             <div class="content">
-              <p>If the button above doesn't work, you can copy and paste the following URL into your web browser:</p>
+              <p>If the button above doesn't work, you can copy and paste the following URL into your web browser:http://localhost:4000/users/forgotPassword/reset/${user[0].id}</p>
               <p></p>
             </div>
             <div class="content">

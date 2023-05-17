@@ -2,30 +2,7 @@ import { Request, Response } from "express";
 import { v4 as uid } from "uuid";
 import mssql from "mssql";
 import { sqlConfig } from "../config";
-
-interface DecodedData {
-    id: string;
-    name: string;
-    emai: string;
-    role: string;
-  }
-interface ExtendedRequest extends Request {
-    body:{
-        user_id: string;
-    }
-    info?: DecodedData;
-    params: {
-      id: string;
-    };
-  }
-
-  type Order = {
-    id:string,
-    user_id: string,
-    isCancelled: number,
-    status:string
-
-  }
+import { ExtendedRequest,Order, Cart } from "../Interfaces/Index";
 
 export const makeOrder =async (req:Request<{ user_id: String }>, res:Response) => {
     
@@ -35,6 +12,15 @@ try {
 
     const pool = await mssql.connect(sqlConfig);
 
+    let cart: Cart[] = (
+      await pool
+        .request()
+        .query(`SELECT * FROM cart WHERE isDeleted = 0 and user_id = '${user_id}'`)
+    ).recordset;
+
+    if(!cart.length){
+      return res.status(404).json({ message: "No Items in Cart" });
+    }
     await pool
     .request()
     .input("id",id)
@@ -59,7 +45,7 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
         await pool.request().input("id", id).execute("getOrderById")
       ).recordset;
   
-      if (!order.length) {
+      if (!order.length || order[0].user_id != req.info?.id) {
         return res.status(404).json({ message: "Order Not Found" });
       }
          //question, how do I confirm user_id before this point and send an error message-------------------------------------
@@ -115,6 +101,9 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
       if (req.info?.role === "admin") {
       let orders: Order[] = (await pool.request().execute("getAllOrders"))
         .recordset;
+        if(!orders.length){
+          return res.status(404).json({ message: "No Orders" });
+        }
       return res.status(200).json(orders);
       }
       return res.status(500).json({ message: "Unauthorized" });
@@ -131,6 +120,10 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
       
       let orders: Order[] = (await pool.request().input("id",id).input("user_id",req.info?.id).execute("getAllOrdersByUserId"))
         .recordset;
+
+      if(!orders.length ){
+        return res.status(404).json({ message: "No Orders" });
+      }
       return res.status(200).json(orders);
     } catch (error: any) {
       return res.status(500).json(error.message);

@@ -2,34 +2,7 @@ import { Request, Response } from "express";
 import { sqlConfig } from "../config";
 import mssql from "mssql";
 import { v4 as uid } from "uuid";
-
-interface DecodedData {
-  id: string;
-  name: string;
-  emai: string;
-  role: string;
-}
-interface ExtendedRequest extends Request {
-  info?: DecodedData;
-  params: {
-    product_id: string;
-  };
-}
-
-type Products = {
-  id: string;
-  productName: string;
-  isDeleted: string;
-  inStock: number;
-  price: number;
-  image: string;
-  description: string;
-};
-interface Cart {
-  product_id: string;
-  user_id: string;
-  count: string;
-}
+import { ExtendedRequest,Cart} from "../Interfaces/Index";
 
 export const addToCart = async (req: ExtendedRequest, res: Response) => {
   try {
@@ -108,16 +81,16 @@ export const decrementCount = async (
     const pool = await mssql.connect(sqlConfig);
     const { product_id } = req.params;  //cart_id
 
-    let product: Cart[] = (
+    let cart: Cart[] = (  //cartItem
       await pool
         .request()
         .query(`SELECT * FROM cart WHERE id = '${product_id}'`)
     ).recordset;
 
-    if (!product.length) {
+    if (!cart.length || cart[0].isDeleted === 1) {
       return res.status(404).json({ message: "Product Not Found" });
     }
-      else if(product[0].user_id === req.info?.id){
+      else if(cart[0].user_id === req.info?.id){
         await pool
         .request()
         .input("id",product_id)
@@ -142,16 +115,16 @@ export const incrementCount = async (
     const pool = await mssql.connect(sqlConfig);
     const { product_id } = req.params;  //cart_id
 
-    let product: Cart[] = (
+    let cart: Cart[] = (
       await pool
         .request()
         .query(`SELECT * FROM cart WHERE id = '${product_id}'`)
     ).recordset;
 
-    if (!product.length) {
+    if (!cart.length || cart[0].isDeleted === 1) {
       return res.status(404).json({ message: "Product Not Found" });
     }
-      else if(product[0].user_id === req.info?.id){
+      else if(cart[0].user_id === req.info?.id){
         await pool
         .request()
         .input("id",product_id)

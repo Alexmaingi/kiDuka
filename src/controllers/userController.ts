@@ -11,6 +11,7 @@ import ejs from "ejs"
 import nodemailer from "nodemailer"
 import { ExtendedRequest,User } from "../Interfaces/Index";
 import { DatabaseHelper } from "../DatabaseHelper";
+import { string } from "joi";
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
@@ -26,17 +27,8 @@ export const addUser = async (req: ExtendedRequest, res: Response) => {
     if (error) {
       return res.status(404).json(error);
     }
-
     let hashedPassword = await bcrypt.hash(password, 10);
-    const pool = await mssql.connect(sqlConfig);
-    await pool
-      .request()
-      .input("id", mssql.VarChar, id)
-      .input("name", mssql.VarChar, name)
-      .input("email", mssql.VarChar, email)
-      .input("password", mssql.VarChar, hashedPassword)
-      .input("phoneNumber", mssql.VarChar, phoneNumber)
-      .execute("insertUser");
+    await DatabaseHelper.exec('insertUser',{id,name,email,password:hashedPassword,phoneNumber})
     return res.status(201).json({ message: "user registered!!" });
   } catch (error: any) {
     return res.status(500).json(error.message);
@@ -48,7 +40,7 @@ export const addUser = async (req: ExtendedRequest, res: Response) => {
 export const getallUser = async (req: Request, res: Response) => {
   try {
     const pool = await mssql.connect(sqlConfig);
-    let users: User[] = (await (await pool.request()).execute("getUsers"))
+    let users: User[] =  (await DatabaseHelper.exec("getUsers"))
       .recordset;
     res.status(200).json(users);
   } catch (error: any) {
@@ -58,14 +50,12 @@ export const getallUser = async (req: Request, res: Response) => {
 
 // getting users by id
 
-export const getUserById: RequestHandler<{ id: String }> = async (req, res) => {
+export const getUserById: RequestHandler<{ id: string }> = async (req, res) => {
   try {
     const { id } = req.params;
     const pool = await mssql.connect(sqlConfig);
-
-    let user: User = (
-      await (await pool.request()).input("id", id).execute("getUserById")
-    ).recordset[0];
+    let user:User = await (await DatabaseHelper.exec('getUserById', {id})).recordset[0]
+    
 
     if (user) {
       return res.status(200).json(user);
@@ -85,18 +75,12 @@ export const getUserByEmail: RequestHandler<{ email: string }> = async (
   try {
     const { email } = req.params;
 
-    const pool = await mssql.connect(sqlConfig);
 
-    let user: User[] = (
-      await (await pool.request())
-        .input("email", email)
-        .execute("getUserByEmail")
-    ).recordset;
+    let user: User[] = (await DatabaseHelper.exec("getUserByEmail",{email})).recordset;
+    if(user=[]){
+      return res.status(404).json({ message: "User Not Found" });
+    }
     res.json(user);
-    // if (user) {
-    //   return res.status(200).json(user);
-    // }
-    // return res.status(404).json({ message: "User Not Found" });
   } catch (error: any) {
     return res.status(500).json(error.message);
   }
@@ -109,22 +93,12 @@ export const updateUser = async (req: ExtendedRequest, res: Response) => {
     const { name, email, password, phoneNumber } = req.body;
     let hashedPassword = await bcrypt.hash(password, 10);
     const { id } = req.params;
-    const pool = await mssql.connect(sqlConfig);
-    let user: User = (
-      await (await pool.request()).input("id", id).execute("getUserById")
-    ).recordset[0];
+    let user: User = await (await DatabaseHelper.exec("getUserById",{id})).recordset[0];
 
     if (!user) {
       return res.status(404).json({ message: "User Not Found" });
     }
-    await pool
-      .request()
-      .input("id", id)
-      .input("name", name)
-      .input("email", email)
-      .input("password", hashedPassword)
-      .input("phoneNumber", phoneNumber)
-      .execute("updateUSer");
+   await DatabaseHelper.exec("updateUSer",{id,name,email,password:hashedPassword,phoneNumber});
     return res.status(200).json({ message: "User Updated" });
   } catch (error: any) {
     return res.status(500).json(error.message);

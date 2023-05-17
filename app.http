@@ -6,10 +6,10 @@ POST http://localhost:4000/users
 Content-Type:  application/json
 
 {
-   "name":"maryjoy fr" ,
-   "email":"maryjoy@example.com",
+   "name":"test user 101" ,
+   "email":"testUser@example.com",
    "password":"password", 
-   "phoneNumber": "074539359"
+   "phoneNumber": "074739359"
    
 }
 
@@ -40,20 +40,20 @@ Content-Type:  application/json
 GET http://localhost:4000/users/07937f89-e8ee-4ec5-94f9-5af3b62a9d84
 
 ###
-GET http://localhost:4000/users/email/example123@example.com
+GET http://localhost:4000/users/email/marrrryjoy@example.com
 
 ###
 DELETE  http://localhost:4000/users/1ac24f89-f1be-439e-91e4-eb7055fb2879
 
 ###
-PUT http://localhost:4000/users/7848a6a2-5373-4695-836b-5b139d07a559
+PUT http://localhost:4000/users/ba39dffa-08bf-48c3-910a-618ce18ba20a
 Content-Type:  application/json
 
 {
-   "name":"Mary NNMwangiii" ,
-   "email":"marUU@gmail.com",
-   "password":"123RYUR478",
-   "phoneNumber": "077234555"
+   "name":"test user 101" ,
+   "email":"testUser@example.com",
+   "password":"password", 
+   "phoneNumber": "074739359"
    
 }
 

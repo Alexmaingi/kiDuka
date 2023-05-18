@@ -2,15 +2,11 @@ CREATE OR ALTER PROCEDURE getAllOrders
 AS
 BEGIN
 SELECT
-  c.order_id AS order_id,
-  p.productName AS product_name,
-  o.status AS status,
-  o.isCancelled AS isCancelled,
   u.name AS user_name,
-  u.email AS email
+  u.email AS email,
+  o.status AS order_status,
+  o.id AS order_id
 FROM
-  cart c
-  JOIN orders o ON c.order_id = o.id
-  JOIN products p ON c.product_id = p.id
-  JOIN users u ON c.user_id = u.id
+  orders o
+  JOIN users u ON o.user_id = u.id;
 END

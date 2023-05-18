@@ -59,6 +59,14 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
   
       
       if (req.info?.role === "admin") {
+        let order: Order[] = (
+          await DatabaseHelper.exec("getOrderById",{id})
+        ).recordset;
+        
+        if(!order.length || order[0].isCancelled===1 ){
+          return res.status(500).json({ message: "Order does not exist" });
+        }
+      
         DatabaseHelper.exec("updateOrderStatusToDelivered",{id});
         return res.status(201).json({ message: "order delivered!" });
       }
@@ -74,6 +82,14 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
   
     
       if (req.info?.role === "admin") {
+        let order: Order[] = (
+          await DatabaseHelper.exec("getOrderById",{id})
+        ).recordset;
+        console.log(order);
+        
+        if(!order.length || order[0].isCancelled===1 ){
+          return res.status(500).json({ message: "Order does not exist" });
+        }
         await DatabaseHelper.exec("updateOrderStatusToDispatched",{id});
         return res.status(201).json({ message: "order dispatched!" });
       }
@@ -89,7 +105,7 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
       if (req.info?.role === "admin") {
       let orders: Order[] = (await DatabaseHelper.exec("getAllOrders"))
         .recordset;
-        if(!orders.length){
+        if(!orders.length ){
           return res.status(404).json({ message: "No Orders" });
         }
       return res.status(200).json(orders);

@@ -7,11 +7,10 @@ import { userRegistrationSchema } from "../Helpers/userValidation";
 import dotenv from "dotenv";
 import path from "path";
 import jwt from "jsonwebtoken";
-import ejs from "ejs"
 import nodemailer from "nodemailer"
 import { ExtendedRequest,User } from "../Interfaces/Index";
 import { DatabaseHelper } from "../DatabaseHelper";
-import { string } from "joi";
+
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
@@ -113,15 +112,14 @@ export const deleteUser = async (
 ) => {
   try {
     const { id } = req.params;
-    const pool = await mssql.connect(sqlConfig);
+   
     let user: User = (
-      await (await pool.request()).input("id", id).execute("getUserById")
-    ).recordset[0];
+      await ( await DatabaseHelper.exec("getUserById",{id}))).recordset[0];
 
     if (!user) {
       return res.status(404).json({ message: "User Not Found" });
     }
-    await pool.request().input("id", id).execute("deleteUser");
+    await DatabaseHelper.exec("deleteUser",{id});
     return res.status(200).json({ message: "User Deleted" });
   } catch (error: any) {
     return res.status(500).json(error.message);
@@ -130,13 +128,10 @@ export const deleteUser = async (
 
 export const loginUser = async (req: Request, res: Response) => {
   try {
-    const pool = await mssql.connect(sqlConfig);
+    
     const { email, password } = req.body;
-    let user: User[] = (
-      await (await pool.request())
-        .input("email", email)
-        .execute("getUserByEmail")
-    ).recordset;
+    let user: User[] = (await (await DatabaseHelper.exec("getUserByEmail",{email})
+    )).recordset;
     if (!user[0]) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -166,12 +161,10 @@ export const forgotPassword = async (req: ExtendedRequest, res: Response) => {
 try {
   const {email} = req.params
 
-  const pool = await mssql.connect(sqlConfig)
+  
   let user: User[] = (
-    await (await pool.request())
-      .input("email", email)
-      .execute("getUserByEmail")
-  ).recordset;
+    await (await DatabaseHelper.exec("getUserByEmail",{email})
+  )).recordset;
   console.log(user);
   
   if (!user[0]) {
@@ -298,19 +291,14 @@ export const resetPassword = async (req: ExtendedRequest, res: Response) => {
     let hashedPassword = await bcrypt.hash(password, 10);
  console.log(id);
  
-    const pool = await mssql.connect(sqlConfig);
     let user: User = (
-      await (await pool.request()).input("id", id).execute("getUserById")
-    ).recordset[0];
+      await (await DatabaseHelper.exec("getUserById",{id})
+    )).recordset[0];
 
     if (!user) {
       return res.status(404).json({ message: "User Not Found" });
     }
-    await pool
-      .request()
-      .input("id", id)
-      .input("password", hashedPassword)
-      .execute("resetPassword");
+    DatabaseHelper.exec("resetPassword",{id,password:hashedPassword});
     return res.status(200).json({ message: "User Password Updated" });
   } catch (error: any) {
     return res.status(500).json(error.message);

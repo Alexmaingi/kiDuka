@@ -3,29 +3,22 @@ import { v4 as uid } from "uuid";
 import mssql from "mssql";
 import { sqlConfig } from "../config";
 import { ExtendedRequest,Order, Cart } from "../Interfaces/Index";
+import { DatabaseHelper } from "../DatabaseHelper";
 
-export const makeOrder =async (req:Request<{ user_id: String }>, res:Response) => {
+export const makeOrder =async (req:Request<{ user_id: string }>, res:Response) => {
     
 try {
     let id=uid()
     const {user_id} = req.params
 
-    const pool = await mssql.connect(sqlConfig);
-
-    let cart: Cart[] = (
-      await pool
-        .request()
-        .query(`SELECT * FROM cart WHERE isDeleted = 0 and user_id = '${user_id}'`)
+    let cart: Cart[] = ( await
+      DatabaseHelper.query(`SELECT * FROM cart WHERE isDeleted = 0 and user_id = '${user_id}'`)
     ).recordset;
 
     if(!cart.length){
       return res.status(404).json({ message: "No Items in Cart" });
     }
-    await pool
-    .request()
-    .input("id",id)
-    .input("user_id",user_id)
-    .execute("makeOrder")
+    await DatabaseHelper.exec("makeOrder",{id, user_id})
     return res.status(200).json({ message: "Order Placed" });
 
 
@@ -38,18 +31,20 @@ try {
 
 export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
     try {
-      const pool = await mssql.connect(sqlConfig);
+  
       const { id } = req.params;
   
       let order: Order[] = (
-        await pool.request().input("id", id).execute("getOrderById")
+        await DatabaseHelper.exec("getOrderById",{id})
       ).recordset;
   
       if (!order.length || order[0].user_id != req.info?.id) {
         return res.status(404).json({ message: "Order Not Found" });
       }
          //question, how do I confirm user_id before this point and send an error message-------------------------------------
-        await pool.request().input("id", id).input("user_id",req.info?.id ).execute("deleteOrder");
+         await DatabaseHelper.exec("deleteOrder",{id,user_id:req.info.id});
+
+         //await pool.request().input("id", id).input("user_id",req.info?.id ).execute("deleteOrder");
         return res.status(200).json({ message: "order deleted successfully" });
              
       
@@ -62,12 +57,9 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
     try {
         const { id } = req.params;
   
-      const pool = await mssql.connect(sqlConfig);
+      
       if (req.info?.role === "admin") {
-        await pool
-          .request()
-          .input("id", mssql.VarChar, id)
-          .execute("updateOrderStatusToDelivered");
+        DatabaseHelper.exec("updateOrderStatusToDelivered",{id});
         return res.status(201).json({ message: "order delivered!" });
       }
       return res.status(500).json({ message: "Unauthorized" });
@@ -80,12 +72,9 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
     try {
         const { id } = req.params;
   
-      const pool = await mssql.connect(sqlConfig);
+    
       if (req.info?.role === "admin") {
-        await pool
-          .request()
-          .input("id", mssql.VarChar, id)
-          .execute("updateOrderStatusToDispatched");
+        await DatabaseHelper.exec("updateOrderStatusToDispatched",{id});
         return res.status(201).json({ message: "order dispatched!" });
       }
       return res.status(500).json({ message: "Unauthorized" });
@@ -97,9 +86,8 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
 
   export const getAllOrders = async (req: ExtendedRequest, res: Response) => {
     try {
-      const pool = await mssql.connect(sqlConfig);
       if (req.info?.role === "admin") {
-      let orders: Order[] = (await pool.request().execute("getAllOrders"))
+      let orders: Order[] = (await DatabaseHelper.exec("getAllOrders"))
         .recordset;
         if(!orders.length){
           return res.status(404).json({ message: "No Orders" });
@@ -115,10 +103,12 @@ export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
   export const getAllOrdersByUserId = async (req: ExtendedRequest, res: Response) => {
     try {
         const { id } = req.params;
-      const pool = await mssql.connect(sqlConfig);
-          
-      
-      let orders: Order[] = (await pool.request().input("id",id).input("user_id",req.info?.id).execute("getAllOrdersByUserId"))
+        const user_id= req.info?.id as string
+        console.log(user_id);
+        console.log(id);
+        
+        
+      let orders: Order[] = (await DatabaseHelper.exec("getAllOrdersByUserId",{id,user_id}))
         .recordset;
 
       if(!orders.length ){

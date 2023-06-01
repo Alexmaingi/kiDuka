@@ -7,9 +7,9 @@ Content-Type:  application/json
 
 {
    "name":"test user 101" ,
-   "email":"testUser@example.com",
+   "email":"alexmaingi077@gmail.com",
    "password":"password", 
-   "phoneNumber": "074739359"
+   "phoneNumber": "0715475235"
    
 }
 
@@ -107,8 +107,8 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5YTBmZDQ0LTg5NzEtNDQ0NC04
 //add to cart
 
 
-POST http://localhost:4000/cart/3a4c80ae-6dab-4a14-884b-fc491dd4fc77
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDM1MTk0MywiZXhwIjoxNjg0NzExOTQzfQ.kSkf2HRMV2SNMRC_Q0gOQW-fMatoZfP9nLniylHPopk
+POST http://localhost:4000/cart/2bf24f4f-8e62-45c5-8c1b-577f25ee4ce3
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NTM2MzUyNCwiZXhwIjoxNjg1NzIzNTI0fQ.aE_E7BEbTnW2xGsVsxpJV99AnHTcNKIH-EHi5vtAkdo
 
 
 
@@ -116,7 +116,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05
 ####
 
 GET  http://localhost:4000/cart/d1faadf7-015c-43dd-9638-366fbc20b87c
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDM5OTAyOSwiZXhwIjoxNjg0NzU5MDI5fQ.2TWTJAhU07Q7k7sCuVdcIXSC3zUPJ2KtJ6imIpSVp3E
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDk0OTI0OSwiZXhwIjoxNjg1MzA5MjQ5fQ.V9nkIKgP7HRte0Xaspk8_tQA4knnj8AMZjhW6H8i7X8
 
 
 
@@ -141,8 +141,8 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05
 //------------------------------------ORDERS--------------------------------------------------
 //get order by a certain user using order_id in url and user token to know which user
 ###
-GET http://localhost:4000/order/882e7ac8-8d7c-4148-bca9-7ab91d03c353
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDM1MjIwMCwiZXhwIjoxNjg0NzEyMjAwfQ.9sFBxyZPBiGbOCC9G7jVSlyQhKCsuD1O9TBIImXKMLc
+GET http://localhost:4000/order/ec8067a3-86d9-4ecd-bb1d-cf86a6eb9565
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NTM2MzUyNCwiZXhwIjoxNjg1NzIzNTI0fQ.aE_E7BEbTnW2xGsVsxpJV99AnHTcNKIH-EHi5vtAkdo
 
 
 //make order using user_id
@@ -152,12 +152,12 @@ POST http://localhost:4000/order/d1faadf7-015c-43dd-9638-366fbc20b87c
 //cancel an order using the order id in the url
 ###
 PUT http://localhost:4000/order/delete/882e7ac8-8d7c-4148-bca9-7ab91d03c353
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsImlhdCI6MTY4NDA3MzgwNCwiZXhwIjoxNjg0NDMzODA0fQ.n6sZQ2kyUbZtxkp1tntR2OHxr5UM3udf0JUYnBr0Ly4
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NTM2MzUyNCwiZXhwIjoxNjg1NzIzNTI0fQ.aE_E7BEbTnW2xGsVsxpJV99AnHTcNKIH-EHi5vtAkdo
 
 //get all orders, only for admin
 ###
 GET http://localhost:4000/order
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDMzNTUwMSwiZXhwIjoxNjg0Njk1NTAxfQ.pAHT-qxkX3z3Qa900CsJ4MB90-0vr1jB2-oKoLujPh4
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05NjM4LTM2NmZiYzIwYjg3YyIsIm5hbWUiOiJ5YWFuaSB0dSIsImVtYWlsIjoiNzY1NDZAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6NzQ0MzkzNDIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NDk0OTI0OSwiZXhwIjoxNjg1MzA5MjQ5fQ.V9nkIKgP7HRte0Xaspk8_tQA4knnj8AMZjhW6H8i7X8
 
 
 //mark as dispatched, only for admin
@@ -174,7 +174,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQxZmFhZGY3LTAxNWMtNDNkZC05
 
 //--------------------forgot password
 ###
-GET http://localhost:4000/users/forgotPassword/sigh@example.com
+GET http://localhost:4000/users/forgotPassword/alexmaingi077@gmail.com
 
 
 

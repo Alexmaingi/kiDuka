@@ -23,11 +23,12 @@ try {
 
 
 } catch (error:any) {
- return res.status(500).json(error.message)
+ return res.status(500).json({message:error.message})
     
 }
 
 }
+
 
 export const deleteOrder = async (req: ExtendedRequest, res: Response) => {
     try {

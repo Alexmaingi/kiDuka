@@ -54,7 +54,7 @@ export const deleteCartProduct = async (
     ).recordset;
 
     if (!product.length) {
-      return res.status(404).json({ message: "Product Not Found" });
+      return res.status(404).json({ message: "Product Not Found aki" });
     }
       else if(product[0].user_id === req.info?.id){
         await pool
@@ -97,7 +97,13 @@ export const decrementCount = async (
         .execute("decrementProductInCart");
       return res.status(200).json({ message: "product decremented successfully" });
 
-      }else{
+      } else if(cart[0].count <= '1'){
+        await pool
+        .request()
+        .input("id", product_id)
+        .execute("deleteToCart");
+      return res.status(200).json({ message: "product deleted successfully" })}
+      else{
         return res.status(404).json({ message: "Product Not Found in your cart" });
       }
     

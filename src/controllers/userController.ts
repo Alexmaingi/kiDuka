@@ -24,13 +24,13 @@ export const addUser = async (req: ExtendedRequest, res: Response) => {
     const { error } = userRegistrationSchema.validate(req.body);
 
     if (error) {
-      return res.status(404).json(error);
+      return res.status(404).json({message:error.message});
     }
     let hashedPassword = await bcrypt.hash(password, 10);
     await DatabaseHelper.exec('insertUser',{id,name,email,password:hashedPassword,phoneNumber})
     return res.status(201).json({ message: "user registered!!" });
   } catch (error: any) {
-    return res.status(500).json(error.message);
+    return res.status(500).json({message:error.message});
   }
 };
 
@@ -149,10 +149,10 @@ export const loginUser = async (req: Request, res: Response) => {
     const token = jwt.sign(payload[0], process.env.SECRET_KEY as string, {
       expiresIn: "360000s",
     });
-
-    return res.json({ message: "Log in successfull", token });
+   const role =user[0].role
+    return res.json({ message: "Log in successfull", token, role});
   } catch (error: any) {
-    return res.status(404).json(error.message);
+    return res.status(404).json({message:error.message});
   }
 };
 
